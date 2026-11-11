@@ -396,7 +396,8 @@ function renderPlantsGrid(filter = 'all') {
                     <img src="${encodedSrc}" 
                          alt="${categoryTitle} Specimen - Sri Durga Sai Teja Nursery" 
                          class="plant-grid-img" 
-                         loading="lazy">
+                         loading="lazy"
+                         decoding="async">
                     <div class="plant-grid-hover-overlay">
                         <span class="plant-grid-zoom-icon"><i class="fas fa-search-plus"></i></span>
                     </div>
@@ -584,7 +585,7 @@ function renderGallery() {
         const encodedSrc = encodeURI(item.src);
         card.innerHTML = `
             <div class="gallery-item-inner">
-                <img src="${encodedSrc}" alt="${item.title} - Sri Durga Sai Teja Nursery" class="gallery-item-img" loading="lazy">
+                <img src="${encodedSrc}" alt="${item.title} - Sri Durga Sai Teja Nursery" class="gallery-item-img" loading="lazy" decoding="async">
                 <div class="gallery-zoom-badge">
                     <i class="fas fa-expand-alt"></i>
                 </div>
