@@ -1,0 +1,4332 @@
+/* ==========================================================================
+   SRI DURGA SAITEJA NURSERY — MASTER STYLESHEET
+   Brand Identity: Premium Indian Plant Nursery & Landscaping
+   ========================================================================== */
+
+/* -------- GOOGLE FONTS & DESIGN TOKENS -------- */
+:root {
+    /* Brand Color Palette */
+    --color-forest: #123D2A;         /* Deep Forest Green */
+    --color-primary: #246B3B;        /* Primary Nursery Green */
+    --color-leaf: #69A84F;           /* Fresh Leaf Green */
+    --color-light-leaf: #88C46E;     /* Soft Leaf Green */
+    --color-cream: #FAF8F0;          /* Warm Cream Background */
+    --color-white: #FFFFFF;          /* Pure White */
+    --color-beige: #F2EFE6;          /* Earthy Beige Accent */
+    --color-beige-dark: #E3DEC3;     /* Darker Beige */
+    --color-gold: #D4AF37;           /* Warm Nursery Gold */
+    --color-gold-light: #F7E7A6;     /* Soft Gold */
+    --color-dark: #141C17;           /* Off-black text */
+    --color-muted: #5A695E;          /* Muted body text */
+    --color-border: #E2E8E4;         /* Soft Border */
+    --color-whatsapp: #25D366;       /* Official WhatsApp Green */
+    --color-whatsapp-dark: #128C7E;  /* WhatsApp Dark */
+
+    /* Typography */
+    --font-heading: 'Playfair Display', 'Cinzel', Georgia, serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-script: 'Dancing Script', cursive;
+
+    /* Shadows & Elevation */
+    --shadow-xs: 0 2px 6px rgba(18, 61, 42, 0.05);
+    --shadow-sm: 0 4px 12px rgba(18, 61, 42, 0.08);
+    --shadow-md: 0 8px 24px rgba(18, 61, 42, 0.12);
+    --shadow-lg: 0 16px 40px rgba(18, 61, 42, 0.16);
+    --shadow-xl: 0 24px 60px rgba(18, 61, 42, 0.22);
+    --shadow-inner: inset 0 2px 6px rgba(0, 0, 0, 0.06);
+
+    /* Border Radii */
+    --radius-xs: 6px;
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    --radius-full: 9999px;
+
+    /* Transitions */
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* -------- RESET & BASE STYLES -------- */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 96px;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-dark);
+    background-color: var(--color-cream);
+    line-height: 1.7;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-fast);
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ==========================================================================
+   PREMIUM TWO-LEVEL NAVBAR & TOP CONTACT STRIP
+   Sri Aakanksha Nursery aesthetic: Deep Forest Green & Crisp White
+   ========================================================================== */
+
+/* -------- 1. SLIM TOP CONTACT STRIP (FOREST GREEN) -------- */
+.top-bar {
+    background: linear-gradient(90deg, #071f13 0%, #0c331e 50%, #071f13 100%);
+    color: #e2ede7;
+    padding: 7px 0;
+    font-size: 12.5px;
+    position: relative;
+    z-index: 1002;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    letter-spacing: 0.25px;
+}
+
+.top-bar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.top-bar-left,
+.top-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.top-bar-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #e2ede7;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 12.5px;
+    transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.top-bar-item i {
+    color: #88c46e;
+    font-size: 12px;
+    transition: transform var(--transition-fast);
+}
+
+.top-bar-item:hover {
+    color: #ffffff;
+}
+
+.top-bar-item:hover i {
+    transform: scale(1.15);
+}
+
+.top-bar-divider {
+    color: rgba(255, 255, 255, 0.22);
+    font-weight: 300;
+    font-size: 11px;
+    user-select: none;
+}
+
+.top-bar-badge {
+    background: rgba(212, 175, 55, 0.16);
+    color: #f7e7a6;
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    padding: 2px 10px;
+    border-radius: var(--radius-full);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.top-bar-badge i {
+    color: #d4af37;
+    font-size: 10px;
+}
+
+.top-bar-whatsapp {
+    color: #a3e788 !important;
+    font-weight: 600;
+}
+
+.top-bar-whatsapp i {
+    color: #25d366 !important;
+}
+
+/* -------- 2. MAIN STICKY NAVBAR (CRISP WHITE THEME) -------- */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(18, 61, 42, 0.08);
+    box-shadow: 0 2px 14px rgba(18, 61, 42, 0.05);
+    transition: background var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+    animation: navbarEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes navbarEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(-16px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.99);
+    box-shadow: 0 4px 24px rgba(12, 45, 25, 0.09);
+    border-bottom-color: rgba(18, 61, 42, 0.12);
+}
+
+.navbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 78px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    gap: clamp(24px, 4vw, 55px);
+    transition: min-height var(--transition-normal);
+}
+
+.navbar.scrolled .navbar-content {
+    min-height: 70px;
+}
+
+/* -------- 3. NURSERY LOGO & BRAND NAME -------- */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    text-decoration: none;
+    flex-shrink: 0;
+    user-select: none;
+}
+
+.navbar-logo-wrap {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #071f13;
+    padding: 0;
+    border: 2px solid #164e2e;
+    box-shadow: 0 3px 12px rgba(18, 61, 42, 0.16);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.navbar-brand:hover .navbar-logo-wrap {
+    transform: scale(1.06) rotate(4deg);
+    border-color: #69a84f;
+    box-shadow: 0 6px 18px rgba(18, 61, 42, 0.25);
+}
+
+.navbar-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+.navbar-brand-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    gap: 1px;
+}
+
+.brand-line-1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--color-forest);
+    letter-spacing: 0.25px;
+    line-height: 1.18;
+    white-space: nowrap;
+    transition: color var(--transition-fast);
+}
+
+.brand-line-2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--color-forest);
+    letter-spacing: 0.9px;
+    line-height: 1.18;
+    white-space: nowrap;
+    opacity: 0.92;
+    transition: color var(--transition-fast);
+}
+
+.navbar-brand:hover .brand-line-1,
+.navbar-brand:hover .brand-line-2 {
+    color: var(--color-primary);
+}
+
+.navbar-brand-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--color-forest);
+    letter-spacing: 0.4px;
+    line-height: 1;
+    text-transform: none;
+    white-space: nowrap;
+    transition: color var(--transition-fast);
+}
+
+.navbar-brand:hover .navbar-brand-name {
+    color: var(--color-primary);
+}
+
+/* -------- 4. NAVIGATION LINKS -------- */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    position: relative;
+    list-style: none;
+}
+
+.nav-link {
+    font-family: var(--font-body);
+    font-size: 14.5px;
+    font-weight: 600;
+    color: #123d2a;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    padding: 12px 2px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+    transition: color 0.25s ease;
+    white-space: nowrap;
+}
+
+/* Thin Animated Underline */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #123d2a 0%, #2e7d32 50%, #69a84f 100%);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #0a291a;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    transform: scaleX(1);
+}
+
+/* Dropdown Arrow Indicator */
+.dropdown-arrow {
+    font-size: 10px;
+    color: #5a695e;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
+}
+
+.has-dropdown:hover .dropdown-arrow,
+.has-dropdown:focus-within .dropdown-arrow {
+    transform: rotate(180deg);
+    color: #1b6338;
+}
+
+/* -------- 5. SMOOTH DROPDOWN MENUS -------- */
+.has-dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 250px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 16px 40px rgba(12, 45, 25, 0.14), 0 2px 8px rgba(0, 0, 0, 0.04);
+    padding: 8px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1), transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.28s;
+    border: 1px solid rgba(18, 61, 42, 0.09);
+    z-index: 1050;
+    list-style: none;
+}
+
+.has-dropdown:hover .dropdown-menu,
+.has-dropdown:focus-within .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(2px);
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 20px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #123d2a;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
+}
+
+.dropdown-item i {
+    font-size: 13px;
+    color: #69a84f;
+    width: 16px;
+    text-align: center;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background: #f4f8f4;
+    color: #071f13;
+    padding-left: 25px;
+}
+
+.dropdown-item:hover i {
+    transform: scale(1.18);
+    color: #1b6338;
+}
+
+/* -------- 6. NAVBAR ACTIONS & WHATSAPP BUTTON -------- */
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+}
+
+.btn-nav-whatsapp {
+    background: linear-gradient(135deg, #25D366 0%, #15803d 100%);
+    color: #ffffff;
+    padding: 10px 22px;
+    border-radius: var(--radius-full);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.32);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.btn-nav-whatsapp:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+    color: #ffffff;
+}
+
+/* -------- 7. MOBILE HAMBURGER BUTTON -------- */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 32px;
+    height: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1005;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 2.5px;
+    background-color: #0c331e;
+    border-radius: 3px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, background-color 0.25s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(9.5px) rotate(45deg);
+    background-color: #0c331e;
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-9.5px) rotate(-45deg);
+    background-color: #0c331e;
+}
+
+/* -------- 8. MOBILE NAVIGATION DRAWER & OVERLAY -------- */
+.mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(12, 35, 20, 0.6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 1003;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.mobile-nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-nav-drawer {
+    position: fixed;
+    top: 0;
+    right: -340px;
+    width: 330px;
+    max-width: 86vw;
+    height: 100%;
+    background: #ffffff;
+    z-index: 1004;
+    padding: 24px 20px;
+    overflow-y: auto;
+    box-shadow: -8px 0 32px rgba(12, 35, 20, 0.2);
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mobile-nav-drawer.active {
+    right: 0;
+}
+
+.mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #e8ede9;
+}
+
+.mobile-brand-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mobile-logo-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid #164e2e;
+}
+
+.mobile-brand-title {
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #0c331e;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.mobile-nav-close-btn {
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #0c331e;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0 4px;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.mobile-nav-close-btn:hover {
+    transform: rotate(90deg);
+    color: #1b6338;
+}
+
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.mobile-nav-link {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: #123d2a;
+    padding: 11px 14px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.mobile-nav-link i {
+    width: 18px;
+    color: #69a84f;
+    font-size: 13px;
+    text-align: center;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+    background: #eef6ee;
+    color: #0c331e;
+}
+
+.mobile-nav-link.active i {
+    color: #1b6338;
+}
+
+.mobile-sublinks {
+    padding-left: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 2px;
+    margin-bottom: 6px;
+}
+
+.mobile-sublink {
+    font-size: 13px;
+    font-weight: 500;
+    color: #4a5c50;
+    padding: 7px 12px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.mobile-sublink i {
+    font-size: 11px;
+    color: #88c46e;
+}
+
+.mobile-sublink:hover {
+    color: #0c331e;
+    background: #f4f8f4;
+}
+
+.mobile-nav-footer {
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid #e8ede9;
+}
+
+.mobile-wa-btn {
+    width: 100%;
+    justify-content: center;
+    background: linear-gradient(135deg, #25D366 0%, #15803d 100%) !important;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+}
+
+/* -------- HERO LANDING SLIDER (CLEAN, NATURAL & FULL-WIDTH) -------- */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: min(80vh, 760px);
+    min-height: 480px;
+    background-color: #081f12;
+    overflow: hidden;
+    user-select: none;
+}
+
+.hero-slider-wrap {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.8s;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+.hero-slide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: none;
+    transform: scale(1.0);
+    transition: transform 7.5s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+}
+
+.hero-slide.active .hero-slide-img {
+    transform: scale(1.045);
+}
+
+/* Individual natural object-positioning so all important parts remain visible */
+.hero-slide:nth-child(1) .hero-slide-img {
+    object-position: center 30%;
+}
+
+.hero-slide:nth-child(2) .hero-slide-img {
+    object-position: center 38%;
+}
+
+.hero-slide:nth-child(3) .hero-slide-img {
+    object-position: 65% 40%;
+}
+
+/* First Landing Slide Welcome Message (Left-Side Animated Typing) */
+.hero-welcome-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: clamp(28px, 8vw, 110px);
+    padding-right: 28px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.hero-welcome-inner {
+    max-width: min(720px, 90vw);
+    text-align: left;
+}
+
+.hero-welcome-eyebrow {
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: clamp(16px, 2.2vw, 24px);
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    color: #FAF6ED;
+    margin-bottom: clamp(6px, 1.2vw, 12px);
+    display: block;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.65), 0 1px 3px rgba(0, 0, 0, 0.85);
+}
+
+.hero-welcome-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(28px, 4.8vw, 56px);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #FFFFFF;
+    margin: 0;
+    letter-spacing: 0.5px;
+    text-shadow: 0 3px 20px rgba(0, 0, 0, 0.7), 0 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+.type-letter {
+    display: inline-block;
+    opacity: 0;
+    animation: letterFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    white-space: pre;
+}
+
+@keyframes letterFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-leaf) 100%);
+    color: var(--color-white);
+    padding: 15px 34px;
+    border-radius: var(--radius-full);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 8px 25px rgba(36, 107, 59, 0.4);
+    transition: var(--transition-normal);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(36, 107, 59, 0.55);
+    background: linear-gradient(135deg, #1d5930 0%, #76bd59 100%);
+    color: var(--color-white);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    color: var(--color-white);
+    padding: 14px 32px;
+    border-radius: var(--radius-full);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition-normal);
+}
+
+.btn-secondary:hover {
+    background: var(--color-white);
+    color: var(--color-forest);
+    border-color: var(--color-white);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+}
+
+/* Minimal Side Navigation Arrows */
+.hero-nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.25s ease, transform 0.25s ease, opacity 0.25s ease, border-color 0.25s ease;
+    opacity: 0.75;
+}
+
+.hero-nav-arrow:hover {
+    background: rgba(255, 255, 255, 0.35);
+    border-color: rgba(255, 255, 255, 0.7);
+    color: #ffffff;
+    transform: translateY(-50%) scale(1.08);
+    opacity: 1;
+}
+
+.hero-prev-arrow {
+    left: 28px;
+}
+
+.hero-next-arrow {
+    right: 28px;
+}
+
+/* Elegant Bottom Center White Navigation Dots */
+.hero-dots-wrap {
+    position: absolute;
+    bottom: 26px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 18px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.hero-dots {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-dot:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.2);
+}
+
+.hero-dot.active {
+    width: 28px;
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+/* -------- SECTION HEADINGS (GLOBAL) -------- */
+.section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+}
+
+.section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--color-beige);
+    color: var(--color-primary);
+    padding: 6px 18px;
+    border-radius: var(--radius-full);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.section-tag i {
+    color: var(--color-leaf);
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(28px, 3.8vw, 42px);
+    font-weight: 800;
+    color: var(--color-forest);
+    line-height: 1.25;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.section-subtitle {
+    font-size: 16px;
+    color: var(--color-muted);
+    line-height: 1.7;
+}
+
+.section-title-divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-leaf));
+    margin: 16px auto 0 auto;
+    border-radius: var(--radius-full);
+}
+
+/* -------- ABOUT SECTION -------- */
+/* ============================================================
+   ABOUT SECTION — Premium Two-Column Redesign
+   ============================================================ */
+
+.about-section {
+    padding: 110px 0 120px;
+    background: linear-gradient(160deg, #f8faf6 0%, #ffffff 50%, #f3f8f1 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle background leaf watermark */
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(107, 182, 83, 0.06) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.about-section::after {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    left: -60px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(36, 107, 59, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: center;
+}
+
+/* ---- Eyebrow ---- */
+.about-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 4px;
+}
+
+.about-eyebrow-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-leaf), transparent);
+    max-width: 60px;
+}
+
+.about-eyebrow-text {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.about-eyebrow-text i {
+    font-size: 10px;
+    color: var(--color-leaf);
+}
+
+/* ---- Main Heading ---- */
+.about-main-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3.2vw, 42px);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--color-forest);
+    margin: 10px 0 0;
+}
+
+.about-heading-accent {
+    color: var(--color-primary);
+    font-style: italic;
+}
+
+/* ---- Text Content ---- */
+.about-text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.about-intro {
+    font-size: 17px;
+    font-weight: 500;
+    color: #3a5a3a;
+    line-height: 1.75;
+    border-left: 3px solid var(--color-leaf);
+    padding-left: 18px;
+    margin-top: 4px;
+}
+
+.about-desc {
+    font-size: 15.5px;
+    color: var(--color-muted);
+    line-height: 1.85;
+}
+
+/* ---- Plant Collections Grid ---- */
+.about-collections {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.about-collection-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 10px 12px;
+    background: #ffffff;
+    border: 1px solid rgba(107, 182, 83, 0.2);
+    border-radius: 12px;
+    text-align: center;
+    cursor: default;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+    box-shadow: 0 2px 10px rgba(36, 107, 59, 0.06);
+    /* stagger animation */
+    opacity: 0;
+    transform: translateY(14px);
+    animation: collectionReveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: calc(0.08s * var(--stagger, 0) + 0.3s);
+    animation-play-state: paused;
+}
+
+.about-collections.in-view .about-collection-item {
+    animation-play-state: running;
+}
+
+@keyframes collectionReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about-collection-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(36, 107, 59, 0.14);
+    border-color: var(--color-leaf);
+    background: linear-gradient(145deg, #f5fdf0, #ffffff);
+}
+
+.about-collection-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-beige) 0%, #e6f5de 100%);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.about-collection-item:hover .about-collection-icon {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-leaf) 100%);
+    color: #ffffff;
+}
+
+.about-collection-name {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--color-forest);
+    letter-spacing: 0.3px;
+    line-height: 1.3;
+}
+
+/* ---- CTA Button ---- */
+.about-cta-wrap {
+    margin-top: 6px;
+}
+
+.btn-about-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 36px;
+    background: linear-gradient(135deg, var(--color-forest) 0%, var(--color-primary) 100%);
+    color: #ffffff;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: var(--radius-full);
+    box-shadow: 0 8px 28px rgba(36, 107, 59, 0.38);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-about-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 36px rgba(36, 107, 59, 0.5);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-leaf) 100%);
+    color: #ffffff;
+}
+
+.btn-about-cta i {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.btn-about-cta:hover i {
+    transform: rotate(5deg) scale(1.15);
+}
+
+/* ---- Image Side ---- */
+.about-image-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-img-frame {
+    position: relative;
+    border-radius: 24px 60px 24px 60px;
+    overflow: hidden;
+    box-shadow: 0 30px 70px rgba(36, 107, 59, 0.2), 0 8px 24px rgba(0, 0, 0, 0.12);
+    border: 5px solid #ffffff;
+    transition: box-shadow 0.4s ease;
+    max-width: 100%;
+}
+
+.about-img-frame:hover {
+    box-shadow: 0 40px 90px rgba(36, 107, 59, 0.28), 0 10px 30px rgba(0, 0, 0, 0.14);
+}
+
+.about-img {
+    width: 100%;
+    height: 540px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+    filter: none;
+}
+
+.about-img-frame:hover .about-img {
+    transform: scale(1.04);
+}
+
+/* Decorative corner accents */
+.about-img-corner {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-color: var(--color-leaf);
+    border-style: solid;
+    z-index: 5;
+}
+
+.about-img-corner--tl {
+    top: 14px;
+    left: 14px;
+    border-width: 3px 0 0 3px;
+    border-radius: 4px 0 0 0;
+}
+
+.about-img-corner--br {
+    bottom: 14px;
+    right: 14px;
+    border-width: 0 3px 3px 0;
+    border-radius: 0 0 4px 0;
+}
+
+/* Floating quality badge */
+.about-quality-badge {
+    position: absolute;
+    bottom: -22px;
+    left: -18px;
+    background: var(--color-forest);
+    color: var(--color-white);
+    padding: 18px 24px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 12px 36px rgba(7, 31, 19, 0.35);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border: 4px solid var(--color-white);
+    z-index: 10;
+    animation: badgeFloat 4s ease-in-out infinite;
+}
+
+@keyframes badgeFloat {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-6px); }
+}
+
+.about-quality-icon {
+    font-size: 28px;
+    color: #f0d060;
+    flex-shrink: 0;
+}
+
+.about-quality-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 2px;
+}
+
+.about-quality-sub {
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--color-white);
+}
+
+/* ============================================================
+   FICUS PLANTS SHOWCASE SECTION
+   Warm cream beige aesthetic with continuous moving plant gallery
+   ============================================================ */
+
+.ficus-section {
+    padding: 95px 0 100px;
+    background: linear-gradient(180deg, #FAF6EE 0%, #F5EFE3 50%, #FAF6EE 100%);
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid rgba(180, 160, 130, 0.18);
+    border-bottom: 1px solid rgba(180, 160, 130, 0.18);
+}
+
+/* Subtle decorative soft glow */
+.ficus-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 900px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(255, 255, 255, 0.7) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.ficus-header {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.ficus-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-body);
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #3b6338;
+}
+
+.ficus-eyebrow-leaf {
+    color: #6bb653;
+    font-size: 11px;
+}
+
+.ficus-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 3.8vw, 46px);
+    font-weight: 800;
+    color: #1a361e;
+    margin: 12px 0 10px;
+    letter-spacing: -0.5px;
+}
+
+.ficus-subtitle {
+    font-size: 16px;
+    color: #556c52;
+    max-width: 580px;
+    margin: 0 auto 46px;
+    line-height: 1.65;
+    font-weight: 400;
+}
+
+/* Continuous Horizontal Carousel Moving to the Right */
+.ficus-track-wrap {
+    width: 100%;
+    overflow: hidden;
+    padding: 15px 0 32px;
+    position: relative;
+    z-index: 1;
+    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+
+.ficus-track {
+    display: flex;
+    gap: 24px;
+    width: max-content;
+    animation: ficusScrollRight 52s linear infinite;
+    will-change: transform;
+}
+
+/* Pause smoothly when hovered */
+.ficus-track-wrap:hover .ficus-track {
+    animation-play-state: paused;
+}
+
+/* Moves from left to right: starts at -50% and scrolls forward to 0% */
+@keyframes ficusScrollRight {
+    0% {
+        transform: translate3d(-50%, 0, 0);
+    }
+    100% {
+        transform: translate3d(0%, 0, 0);
+    }
+}
+
+/* Aesthetic Small Curved Plant Cards */
+.ficus-card {
+    flex: 0 0 220px;
+    width: 220px;
+    background: #FAF6EF;
+    border-radius: 22px;
+    padding: 11px;
+    box-shadow: 0 8px 24px rgba(45, 60, 40, 0.07), 0 2px 6px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(180, 160, 130, 0.22);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease, border-color 0.3s ease, background 0.3s ease;
+    cursor: pointer;
+}
+
+.ficus-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 16px 36px rgba(45, 60, 40, 0.15);
+    border-color: rgba(74, 115, 66, 0.38);
+    background: #FFFFFF;
+}
+
+.ficus-card-img-wrap {
+    width: 100%;
+    height: 250px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #EDE6D8;
+    position: relative;
+}
+
+.ficus-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.ficus-card:hover .ficus-card-img {
+    transform: scale(1.06);
+}
+
+/* Aesthetic Bottom Quote */
+.ficus-quote {
+    margin-top: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.ficus-quote p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(17px, 1.8vw, 21px);
+    color: #2b452e;
+    letter-spacing: 0.3px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.ficus-quote-leaf {
+    color: #6bb653;
+    font-size: 15px;
+    opacity: 0.85;
+}
+
+.ficus-quote-leaf--l {
+    transform: rotate(-35deg);
+}
+
+.ficus-quote-leaf--r {
+    transform: rotate(35deg) scaleX(-1);
+}
+
+
+/* -------- PLANT VARIETIES MAIN SECTION -------- */
+.varieties-section {
+    padding: 105px 0 90px 0;
+    background: linear-gradient(180deg, #FBF7F0 0%, #F6F1E6 45%, #FFFFFF 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle soft ambient leaf glow */
+.varieties-section::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 480px;
+    height: 480px;
+    background: radial-gradient(circle, rgba(107, 182, 83, 0.07) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.varieties-section::after {
+    content: '';
+    position: absolute;
+    top: 350px;
+    left: -60px;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, rgba(36, 107, 59, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* New Section Introduction */
+.collections-intro {
+    text-align: center;
+    max-width: 820px;
+    margin: 0 auto 50px auto;
+    position: relative;
+    z-index: 1;
+}
+
+.collections-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-body);
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #3b6338;
+    margin-bottom: 12px;
+}
+
+.collections-eyebrow-leaf {
+    color: #6bb653;
+    font-size: 11px;
+}
+
+.collections-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(34px, 4vw, 48px);
+    font-weight: 800;
+    color: #17361d;
+    line-height: 1.2;
+    margin: 0 0 14px 0;
+    letter-spacing: -0.5px;
+}
+
+.collections-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(17px, 1.8vw, 20.5px);
+    color: #4a6347;
+    margin: 0 auto 20px;
+    max-width: 640px;
+    line-height: 1.6;
+}
+
+.collections-heading-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 6px;
+}
+
+.collections-heading-divider .divider-line {
+    width: 60px;
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent, #8ebf7d, transparent);
+}
+
+.collections-heading-divider .divider-icon {
+    font-size: 13px;
+    color: #6bb653;
+    opacity: 0.85;
+}
+
+/* Five Premium Plant Category Cards (Asymmetric 12-Column Grid) */
+.collections-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+    margin-bottom: 65px;
+    position: relative;
+    z-index: 1;
+}
+
+.collection-hero-card {
+    position: relative;
+    border-radius: 26px;
+    overflow: hidden;
+    box-shadow: 0 14px 34px rgba(20, 44, 25, 0.12), 0 3px 10px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    background: #EDE6D8;
+    transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.45s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s ease;
+    cursor: pointer;
+}
+
+.collection-hero-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 50px rgba(20, 44, 25, 0.22);
+    border-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Card image layer */
+.collection-card-img-wrap {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.collection-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    filter: none;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.collection-hero-card:hover .collection-card-img {
+    transform: scale(1.06);
+}
+
+/* Subtle bottom-focused gradient overlay for crisp readability */
+.collection-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 25%,
+        rgba(8, 25, 14, 0.25) 55%,
+        rgba(6, 20, 11, 0.82) 100%
+    );
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.collection-hero-card:hover .collection-card-overlay {
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(8, 25, 14, 0.22) 50%,
+        rgba(6, 20, 11, 0.86) 100%
+    );
+}
+
+/* Card Content Area */
+.collection-card-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 32px 30px;
+}
+
+.collection-card-title {
+    font-family: 'Playfair Display', serif;
+    color: #FFFFFF;
+    margin: 0 0 6px 0;
+    letter-spacing: 0.3px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    line-height: 1.2;
+}
+
+.collection-card-sub {
+    font-family: var(--font-body);
+    font-size: 14.5px;
+    color: rgba(255, 255, 255, 0.92);
+    margin: 0 0 20px 0;
+    line-height: 1.45;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
+}
+
+/* Cute Explore Button */
+.collection-card-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    align-self: flex-start;
+    padding: 10px 24px;
+    background: #FAF6EF;
+    color: #16381e;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+                background-color 0.3s ease,
+                color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.collection-card-btn:hover {
+    background: #FFFFFF;
+    color: #0b2413;
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+.collection-btn-arrow {
+    font-size: 15px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.collection-card-btn:hover .collection-btn-arrow {
+    transform: translateX(4px);
+}
+
+/* Specific Asymmetrical Grid Sizes */
+/* Row 1: Prominent cards */
+.collection-hero-card.card-outdoor {
+    grid-column: span 7;
+    height: 440px;
+    border-radius: 30px;
+}
+
+.collection-hero-card.card-outdoor .collection-card-title {
+    font-size: clamp(28px, 2.6vw, 36px);
+    font-weight: 800;
+}
+
+.collection-hero-card.card-indoor {
+    grid-column: span 5;
+    height: 440px;
+    border-radius: 30px;
+}
+
+.collection-hero-card.card-indoor .collection-card-title {
+    font-size: clamp(26px, 2.4vw, 34px);
+    font-weight: 800;
+}
+
+/* Row 2: Complementary cards */
+.collection-hero-card.card-complementary {
+    grid-column: span 4;
+    height: 340px;
+    border-radius: 24px;
+}
+
+.collection-hero-card.card-complementary .collection-card-content {
+    padding: 24px 22px;
+}
+
+.collection-hero-card.card-complementary .collection-card-title {
+    font-size: clamp(21px, 1.8vw, 25px);
+    font-weight: 700;
+}
+
+.collection-hero-card.card-complementary .collection-card-sub {
+    font-size: 13.5px;
+    margin-bottom: 16px;
+}
+
+.collection-hero-card.card-complementary .collection-card-btn {
+    padding: 9px 20px;
+    font-size: 12.5px;
+}
+
+/* ============================================================
+   DEDICATED PLANTS COLLECTION SEPARATE VIEW
+   Clean modern botanical e-commerce browsing experience
+   ============================================================ */
+
+.dedicated-varieties-view {
+    min-height: 85vh;
+    padding: 40px 0 100px;
+    background: linear-gradient(180deg, #FBF7F0 0%, #F5EFE3 35%, #FFFFFF 100%);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInView 0.4s ease-out;
+}
+
+@keyframes fadeInView {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Subtle decorative glow */
+.dedicated-varieties-view::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    right: -40px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(107, 182, 83, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Back / Breadcrumb Navigation Bar */
+.collection-page-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 14px 24px;
+    background: #FFFFFF;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(180, 160, 130, 0.22);
+    box-shadow: 0 4px 18px rgba(23, 59, 32, 0.06);
+    margin-bottom: 45px;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-back-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 22px;
+    background: #FAF6EF;
+    color: #173b20;
+    border: 1.5px solid rgba(45, 107, 59, 0.3);
+    border-radius: var(--radius-full);
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.28s ease;
+    user-select: none;
+}
+
+.btn-back-home:hover {
+    background: #173b20;
+    color: #FFFFFF;
+    border-color: #173b20;
+    transform: translateX(-3px);
+    box-shadow: 0 4px 14px rgba(23, 59, 32, 0.2);
+}
+
+.btn-back-home i {
+    font-size: 13px;
+    transition: transform 0.28s ease;
+}
+
+.btn-back-home:hover i {
+    transform: translateX(-3px);
+}
+
+.collection-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13.5px;
+    font-family: var(--font-body);
+    color: #6a7c67;
+}
+
+.collection-breadcrumb a {
+    color: #246b3b;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.collection-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb-separator {
+    color: #a8b8a5;
+    font-size: 12px;
+}
+
+.breadcrumb-current {
+    font-weight: 700;
+    color: #173b20;
+}
+
+.plants-collection-header {
+    text-align: center;
+    max-width: 740px;
+    margin: 0 auto 12px;
+    position: relative;
+    z-index: 1;
+}
+
+.plants-collection-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(34px, 4vw, 48px);
+    font-weight: 800;
+    color: #14351b;
+    letter-spacing: -0.5px;
+    margin: 12px 0 10px;
+    text-align: center;
+}
+
+.plants-collection-sub {
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: #556c52;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Category Navigation Pills (Like Reference Screenshot) */
+.plants-category-pills {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 30px auto 44px;
+    max-width: 950px;
+}
+
+.plant-pill-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    background: #FFFFFF;
+    color: #173b20;
+    border: 1.5px solid #2d6b3b;
+    border-radius: var(--radius-full);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(23, 59, 32, 0.05);
+    transition: all 0.28s cubic-bezier(0.25, 1, 0.5, 1);
+    user-select: none;
+}
+
+.plant-pill-btn .pill-emoji {
+    font-size: 15px;
+    line-height: 1;
+}
+
+.plant-pill-btn:hover {
+    background: #f0f8ee;
+    border-color: #173b20;
+    color: #0d2614;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(23, 59, 32, 0.12);
+}
+
+.plant-pill-btn.active {
+    background: #173b20;
+    color: #FFFFFF;
+    border-color: #173b20;
+    box-shadow: 0 6px 18px rgba(23, 59, 32, 0.26);
+    transform: translateY(-1px);
+}
+
+/* Responsive Plant Image Grid (4 per row desktop, 3 tablet, 2 mobile) */
+.plants-grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 10px;
+    min-height: 300px;
+}
+
+.plant-grid-item {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #FAF6EF;
+    box-shadow: 0 6px 20px rgba(25, 45, 25, 0.07);
+    border: 1px solid rgba(180, 160, 130, 0.2);
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+    aspect-ratio: 1 / 1;
+}
+
+.plant-grid-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(25, 45, 25, 0.16);
+    border-color: rgba(45, 107, 59, 0.4);
+}
+
+.plant-grid-img-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.plant-grid-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+    filter: none;
+}
+
+.plant-grid-item:hover .plant-grid-img {
+    transform: scale(1.07);
+}
+
+.plant-grid-hover-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(14, 40, 20, 0.3);
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+}
+
+.plant-grid-item:hover .plant-grid-hover-overlay {
+    opacity: 1;
+}
+
+.plant-grid-zoom-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    color: #173b20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    transform: scale(0.85);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.plant-grid-item:hover .plant-grid-zoom-icon {
+    transform: scale(1);
+}
+
+.plants-grid-count {
+    text-align: center;
+    font-size: 13.5px;
+    color: #6a7c67;
+    margin-top: 36px;
+    font-family: var(--font-body);
+}
+
+/* -------- LANDSCAPING SECTION -------- */
+.landscaping-section {
+    padding: 105px 0 115px 0;
+    background: linear-gradient(180deg, #FBF8F2 0%, #F5EFE6 45%, #FAF7F2 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.landscaping-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(107, 182, 83, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+.landscaping-hero-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 55px;
+    text-align: center;
+}
+
+/* Rotating SVG Emblem */
+.rotating-logo-wrap {
+    position: relative;
+    width: 210px;
+    height: 210px;
+    margin: 0 auto 32px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rotating-text-circle {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    animation: rotateText 22s linear infinite;
+    pointer-events: none;
+}
+
+.rotating-text-path {
+    font-family: var(--font-body);
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 2.8px;
+    fill: var(--color-forest);
+    text-transform: uppercase;
+}
+
+.rotating-logo-center {
+    width: 114px;
+    height: 114px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--color-white);
+    padding: 6px;
+    box-shadow: 0 10px 25px rgba(18, 61, 42, 0.18);
+    border: 3px solid var(--color-primary);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rotating-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+@keyframes rotateText {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Landscaping Header & Intro */
+.landscaping-intro-header {
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+.landscaping-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 2.4px;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.landscaping-eyebrow-leaf {
+    color: var(--color-leaf);
+    font-size: 11px;
+}
+
+.landscaping-main-heading {
+    font-family: var(--font-heading);
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--color-forest);
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    line-height: 1.25;
+}
+
+.landscaping-subtitle {
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-leaf);
+    margin-bottom: 18px;
+    letter-spacing: 0.3px;
+}
+
+.landscaping-quote-wrap {
+    margin: 16px auto;
+    max-width: 680px;
+    padding: 10px 24px;
+    background: rgba(255, 255, 255, 0.65);
+    border-radius: 30px;
+    border: 1px dashed rgba(18, 61, 42, 0.2);
+}
+
+.landscaping-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 16.5px;
+    color: #2D4A3E;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.landscaping-description {
+    font-size: 15.5px;
+    color: #4A5568;
+    line-height: 1.75;
+    max-width: 740px;
+    margin: 18px auto 22px auto;
+}
+
+.landscaping-heading-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 20px auto 0 auto;
+}
+
+.landscaping-heading-divider .divider-line {
+    width: 65px;
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent, rgba(45, 106, 79, 0.45));
+}
+
+.landscaping-heading-divider .divider-line:last-child {
+    background: linear-gradient(90deg, rgba(45, 106, 79, 0.45), transparent);
+}
+
+.landscaping-heading-divider .divider-icon {
+    color: var(--color-leaf);
+    font-size: 14px;
+}
+
+/* Landscaping Services List (One by One) */
+.landscaping-services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 45px;
+}
+
+.service-showcase-card {
+    border-radius: 28px;
+    padding: 40px 42px;
+    border: 1px solid rgba(18, 61, 42, 0.08);
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-showcase-card.card-bg-white {
+    background: #FFFFFF;
+    box-shadow: 0 12px 36px rgba(18, 61, 42, 0.06);
+}
+
+.service-showcase-card.card-bg-beige {
+    background: #F8F4EC;
+    box-shadow: 0 12px 36px rgba(18, 61, 42, 0.05);
+}
+
+.service-showcase-card.card-bg-cream {
+    background: #FAF7F0;
+    box-shadow: 0 12px 36px rgba(18, 61, 42, 0.05);
+}
+
+.service-showcase-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 48px rgba(18, 61, 42, 0.12);
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.service-grid.service-img-right .service-info-col {
+    order: 1;
+}
+
+.service-grid.service-img-right .service-img-col {
+    order: 2;
+}
+
+.service-grid.service-img-left .service-img-col {
+    order: 1;
+}
+
+.service-grid.service-img-left .service-info-col {
+    order: 2;
+}
+
+/* Service Image Column & Frame */
+.service-img-frame {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+    box-shadow: 0 14px 34px rgba(18, 61, 42, 0.14);
+    background: #EFE9DE;
+}
+
+.service-img-frame.frame-curve-left {
+    border-radius: 36px 14px 36px 14px;
+}
+
+.service-img-frame.frame-curve-right {
+    border-radius: 14px 36px 14px 36px;
+}
+
+.service-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-showcase-card:hover .service-img {
+    transform: scale(1.05);
+}
+
+.service-floating-badge {
+    position: absolute;
+    bottom: 18px;
+    left: 18px;
+    background: rgba(14, 48, 32, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 7px 16px;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.service-floating-badge i {
+    color: #74C69D;
+    font-size: 11px;
+}
+
+/* Service Info Column */
+.service-info-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.service-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    background: rgba(45, 106, 79, 0.08);
+    border: 1px solid rgba(45, 106, 79, 0.14);
+    padding: 5px 14px;
+    border-radius: 30px;
+    margin-bottom: 14px;
+}
+
+.service-badge-num {
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--color-forest);
+}
+
+.service-badge-sep {
+    color: #52B788;
+    font-size: 11px;
+}
+
+.service-badge-cat {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    color: var(--color-primary);
+    text-transform: uppercase;
+}
+
+.service-title {
+    font-family: var(--font-heading);
+    font-size: 29px;
+    font-weight: 700;
+    color: var(--color-forest);
+    line-height: 1.25;
+    margin-bottom: 12px;
+}
+
+.service-desc {
+    font-size: 15px;
+    color: #4A5568;
+    line-height: 1.7;
+    margin-bottom: 22px;
+}
+
+/* Service Highlights 2x2 Grid */
+.service-highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 11px;
+    margin-bottom: 26px;
+}
+
+.service-highlight-pill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(18, 61, 42, 0.1);
+    border-radius: 12px;
+    padding: 9px 13px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(18, 61, 42, 0.03);
+}
+
+.card-bg-white .service-highlight-pill {
+    background: #F9F7F2;
+}
+
+.service-highlight-pill:hover {
+    transform: translateY(-2px);
+    border-color: rgba(45, 106, 79, 0.35);
+    background: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(18, 61, 42, 0.08);
+}
+
+.highlight-icon-wrap {
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-forest) 0%, var(--color-primary) 100%);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    flex-shrink: 0;
+}
+
+.highlight-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1F2937;
+    letter-spacing: 0.1px;
+}
+
+.service-action-wrap {
+    margin-top: 4px;
+}
+
+.service-enquire-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 24px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #123D2A 0%, #1c5239 100%);
+    color: #FFFFFF;
+    font-size: 13.5px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.35s ease;
+    box-shadow: 0 4px 14px rgba(18, 61, 42, 0.18);
+}
+
+.service-enquire-btn i {
+    font-size: 16px;
+    color: #74C69D;
+    transition: transform 0.3s ease;
+}
+
+.service-enquire-btn:hover {
+    background: #25D366;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.service-enquire-btn:hover i {
+    color: #FFFFFF;
+    transform: scale(1.15);
+}
+
+/* Master Landscaping CTA Card */
+.landscape-cta-box {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.landscape-cta-card {
+    background: linear-gradient(135deg, #103423 0%, #184B34 50%, #0F3122 100%);
+    color: #FFFFFF;
+    border-radius: 28px;
+    padding: 48px 36px;
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 16px 42px rgba(16, 52, 35, 0.25);
+    border: 1px solid rgba(116, 198, 157, 0.2);
+}
+
+.landscape-cta-decor {
+    position: absolute;
+    right: -25px;
+    bottom: -35px;
+    font-size: 170px;
+    color: rgba(255, 255, 255, 0.04);
+    pointer-events: none;
+}
+
+.landscape-cta-title {
+    font-family: var(--font-heading);
+    font-size: 27px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #FFFFFF;
+    letter-spacing: 0.3px;
+}
+
+.landscape-cta-sub {
+    font-size: 15px;
+    color: #D1E7DD;
+    max-width: 650px;
+    margin: 0 auto 26px auto;
+    line-height: 1.65;
+}
+
+.landscape-cta-btn {
+    background: #25D366 !important;
+    color: #FFFFFF !important;
+    padding: 14px 34px;
+    border-radius: 35px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.35s ease;
+    box-shadow: 0 6px 22px rgba(37, 211, 102, 0.4);
+    text-decoration: none;
+}
+
+.landscape-cta-btn:hover {
+    background: #1ebe5d !important;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.55);
+}
+
+/* -------- WHY CHOOSE SRI DURGA SAI TEJA NURSERY -------- */
+.why-section {
+    padding: 105px 0 115px 0;
+    background: linear-gradient(180deg, #091F14 0%, #0F3323 50%, #081B11 100%);
+    color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+}
+
+.why-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 750px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(82, 183, 136, 0.16) 0%, transparent 70%);
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+.why-header {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.why-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    color: #74C69D;
+    margin-bottom: 14px;
+}
+
+.why-eyebrow-leaf {
+    color: #52B788;
+    font-size: 11px;
+}
+
+.why-main-heading {
+    font-family: var(--font-heading);
+    font-size: 40px;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    line-height: 1.25;
+}
+
+.why-main-subtitle {
+    font-size: 16px;
+    color: #D1E7DD;
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.65;
+}
+
+.why-heading-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px auto 0 auto;
+}
+
+.why-heading-divider .divider-line {
+    width: 65px;
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent, rgba(116, 198, 157, 0.5));
+}
+
+.why-heading-divider .divider-line:last-child {
+    background: linear-gradient(90deg, rgba(116, 198, 157, 0.5), transparent);
+}
+
+.why-heading-divider .divider-icon {
+    color: #74C69D;
+    font-size: 13px;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.why-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 22px;
+    padding: 38px 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+}
+
+.why-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(116, 198, 157, 0.5);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.38);
+}
+
+.why-icon-box {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1B4D36 0%, #2D6A4F 100%);
+    border: 2px solid rgba(116, 198, 157, 0.35);
+    color: #74C69D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+    margin-bottom: 22px;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+}
+
+.why-card:hover .why-icon-box {
+    transform: scale(1.1) rotate(5deg);
+    background: linear-gradient(135deg, #2D6A4F 0%, #52B788 100%);
+    color: #FFFFFF;
+    border-color: #74C69D;
+    box-shadow: 0 10px 28px rgba(82, 183, 136, 0.45);
+}
+
+.why-card-title {
+    font-family: var(--font-heading);
+    font-size: 16.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+    letter-spacing: 0.8px;
+}
+
+.why-card-desc {
+    font-size: 13.5px;
+    color: #C2D6CC;
+    line-height: 1.65;
+}
+
+/* -------- OUR GREEN GALLERY SECTION -------- */
+.gallery-section {
+    padding: 100px 0 110px 0;
+    background: linear-gradient(180deg, #FFFFFF 0%, #FAF7F2 45%, #FFFFFF 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -100px;
+    width: 520px;
+    height: 520px;
+    background: radial-gradient(circle, rgba(107, 182, 83, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+/* Gallery Intro Header */
+.gallery-intro {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 44px auto;
+}
+
+.gallery-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.4px;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.gallery-eyebrow-leaf {
+    color: var(--color-leaf);
+    font-size: 11px;
+}
+
+.gallery-main-heading {
+    font-family: var(--font-heading);
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--color-forest);
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    line-height: 1.25;
+}
+
+.gallery-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 16.5px;
+    color: #3A4E42;
+    margin: 0 auto 16px auto;
+    max-width: 620px;
+    line-height: 1.6;
+}
+
+.gallery-heading-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 18px auto 0 auto;
+}
+
+.gallery-heading-divider .divider-line {
+    width: 60px;
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent, rgba(45, 106, 79, 0.45));
+}
+
+.gallery-heading-divider .divider-line:last-child {
+    background: linear-gradient(90deg, rgba(45, 106, 79, 0.45), transparent);
+}
+
+.gallery-heading-divider .divider-icon {
+    color: var(--color-leaf);
+    font-size: 13px;
+}
+
+/* Gallery Grid (Pure 10 Curated Photographs) */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.gallery-item {
+    position: relative;
+    height: 310px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 26px rgba(18, 61, 42, 0.08);
+    cursor: pointer;
+    background-color: #EFE9DE;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.45s ease;
+    border: 1px solid rgba(18, 61, 42, 0.08);
+}
+
+.gallery-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(18, 61, 42, 0.16);
+    border-color: rgba(45, 106, 79, 0.3);
+}
+
+.gallery-item-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.gallery-item-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-item:hover .gallery-item-img {
+    transform: scale(1.045);
+}
+
+.gallery-zoom-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #123D2A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    opacity: 0;
+    transform: scale(0.75);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+    pointer-events: none;
+}
+
+.gallery-item:hover .gallery-zoom-badge {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* -------- CONTACT SECTION -------- */
+.contact-section {
+    padding: 100px 0;
+    background: var(--color-cream);
+    position: relative;
+}
+
+.contact-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 60px;
+}
+
+.contact-card {
+    background: var(--color-white);
+    padding: 28px 22px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+    text-align: center;
+    transition: var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-primary);
+}
+
+.contact-card-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--color-forest);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 16px;
+    transition: var(--transition-fast);
+}
+
+.contact-card:hover .contact-card-icon {
+    background: var(--color-primary);
+    transform: scale(1.08);
+}
+
+.contact-card-title {
+    font-family: var(--font-heading);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--color-forest);
+    margin-bottom: 6px;
+}
+
+.contact-card-text {
+    font-size: 14px;
+    color: var(--color-muted);
+    line-height: 1.5;
+}
+
+.contact-card-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-primary);
+    word-break: break-word;
+}
+
+.contact-card-link:hover {
+    color: var(--color-leaf);
+    text-decoration: underline;
+}
+
+/* Main Contact Area (Form + Map/Details) */
+.contact-main-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 40px;
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+}
+
+.contact-form-wrap {
+    padding: 44px;
+}
+
+.contact-form-title {
+    font-family: var(--font-heading);
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--color-forest);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.contact-form-desc {
+    font-size: 14px;
+    color: var(--color-muted);
+    margin-bottom: 28px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-group-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-forest);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-input, .form-select, .form-textarea {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--color-dark);
+    background: var(--color-cream);
+    transition: var(--transition-fast);
+    outline: none;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+    background: var(--color-white);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(36, 107, 59, 0.15);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.btn-form-submit {
+    background: linear-gradient(135deg, var(--color-forest) 0%, var(--color-primary) 100%);
+    color: var(--color-white);
+    padding: 14px 30px;
+    border-radius: var(--radius-full);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 16px rgba(18, 61, 42, 0.25);
+    transition: var(--transition-normal);
+}
+
+.btn-form-submit:hover {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-leaf) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(18, 61, 42, 0.35);
+}
+
+.btn-form-whatsapp {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: var(--color-white);
+    padding: 14px 26px;
+    border-radius: var(--radius-full);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+    transition: var(--transition-normal);
+}
+
+.btn-form-whatsapp:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(37, 211, 102, 0.45);
+}
+
+.form-status-msg {
+    margin-top: 14px;
+    padding: 12px 18px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 600;
+    display: none;
+}
+
+.form-status-msg.success {
+    display: block;
+    background: #EAF7EC;
+    color: #1E6B2C;
+    border: 1px solid #B8E4BF;
+}
+
+.form-status-msg.error {
+    display: block;
+    background: #FDF2F2;
+    color: #9B1C1C;
+    border: 1px solid #F8B4B4;
+}
+
+/* Contact Info & Map Column */
+.contact-side-info {
+    background: var(--color-beige);
+    padding: 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contact-side-header h3 {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-forest);
+    margin-bottom: 14px;
+}
+
+.contact-side-header p {
+    font-size: 14px;
+    color: var(--color-muted);
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.contact-timing-box {
+    background: var(--color-white);
+    padding: 16px 20px;
+    border-radius: var(--radius-sm);
+    border-left: 4px solid var(--color-primary);
+    margin-bottom: 24px;
+}
+
+.contact-timing-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-forest);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.contact-timing-text {
+    font-size: 13px;
+    color: var(--color-muted);
+}
+
+.map-container {
+    width: 100%;
+    height: 220px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* -------- FOOTER -------- */
+.footer {
+    background: var(--color-forest);
+    color: var(--color-white);
+    position: relative;
+    padding-top: 40px;
+}
+
+.footer-wave {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    position: relative;
+    top: -40px;
+    margin-bottom: -40px;
+}
+
+.footer-wave svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 60px;
+}
+
+.footer-wave path {
+    fill: var(--color-forest);
+}
+
+.footer-main {
+    padding: 60px 0 40px 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+    gap: 40px;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.footer-logo-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.footer-logo-wrap {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--color-white);
+    padding: 3px;
+    border: 2px solid var(--color-leaf);
+}
+
+.footer-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.footer-brand-title {
+    font-family: var(--font-heading);
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--color-white);
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.footer-brand-desc {
+    font-size: 14px;
+    color: #C7D8CF;
+    line-height: 1.7;
+}
+
+.footer-col-title {
+    font-family: var(--font-heading);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--color-white);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-col-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 36px;
+    height: 2px;
+    background: var(--color-leaf);
+    border-radius: var(--radius-full);
+}
+
+.footer-links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-link {
+    font-size: 14px;
+    color: #C7D8CF;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition-fast);
+}
+
+.footer-link:hover {
+    color: var(--color-white);
+    padding-left: 6px;
+}
+
+.footer-link i {
+    font-size: 10px;
+    color: var(--color-light-leaf);
+}
+
+.footer-contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.footer-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: #C7D8CF;
+}
+
+.footer-contact-item i {
+    color: var(--color-light-leaf);
+    margin-top: 4px;
+    font-size: 14px;
+}
+
+.footer-social-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.social-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: var(--transition-fast);
+}
+
+.social-btn:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+    transform: translateY(-3px);
+    border-color: var(--color-leaf);
+}
+
+.footer-bottom {
+    padding: 24px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.footer-bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: 13px;
+    color: #A3B8AD;
+}
+
+/* -------- FLOATING ACTION BUTTONS -------- */
+.floating-actions {
+    position: fixed;
+    bottom: 30px;
+    right: 28px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.float-btn {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    font-size: 24px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    transition: var(--transition-normal);
+    position: relative;
+}
+
+.float-btn:hover {
+    transform: scale(1.1) translateY(-2px);
+    color: var(--color-white);
+}
+
+.float-whatsapp {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    animation: pulseWhatsapp 2.4s infinite;
+}
+
+@keyframes pulseWhatsapp {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+.float-call {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-leaf) 100%);
+    font-size: 20px;
+}
+
+.float-backtotop {
+    width: 44px;
+    height: 44px;
+    background: var(--color-forest);
+    font-size: 16px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px);
+}
+
+.float-backtotop.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* -------- LIGHTBOX MODAL -------- */
+.lightbox-modal {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 24, 16, 0.94);
+    backdrop-filter: blur(12px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-normal);
+}
+
+.lightbox-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-container {
+    position: relative;
+    max-width: 90vw;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lightbox-img-wrap {
+    max-width: 100%;
+    max-height: 72vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    background: #000;
+}
+
+.lightbox-img {
+    max-width: 100%;
+    max-height: 72vh;
+    object-fit: contain;
+    transition: transform 0.3s ease, opacity 0.25s ease;
+}
+
+.lightbox-caption {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    color: var(--color-white);
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.lightbox-title-area {
+    display: flex;
+    flex-direction: column;
+}
+
+.lightbox-category {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--color-light-leaf);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.lightbox-counter {
+    font-size: 14px;
+    font-weight: 600;
+    color: #D2E4DA;
+}
+
+.btn-lightbox-enquire {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: var(--color-white);
+    padding: 8px 18px;
+    border-radius: var(--radius-full);
+    font-size: 13px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition-fast);
+}
+
+.btn-lightbox-enquire:hover {
+    transform: scale(1.05);
+    color: var(--color-white);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 24px;
+    right: 28px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--color-white);
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    z-index: 2010;
+}
+
+.lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+.lightbox-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(6px);
+    color: var(--color-white);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    z-index: 2010;
+}
+
+.lightbox-nav-btn:hover {
+    background: var(--color-white);
+    color: var(--color-forest);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-prev {
+    left: 24px;
+}
+
+.lightbox-next {
+    right: 24px;
+}
+
+/* -------- ANIMATIONS & SCROLL REVEALS — NATURAL TIMING (500ms - 850ms) -------- */
+.reveal-init {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-36px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(36px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-fade {
+    opacity: 0;
+    transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity;
+}
+
+.reveal-visible {
+    opacity: 1 !important;
+    transform: translate(0, 0) scale(1) !important;
+}
+
+/* Natural Sequential Stagger Delays (110ms - 140ms steps) */
+.delay-1 { transition-delay: 0.12s; }
+.delay-2 { transition-delay: 0.24s; }
+.delay-3 { transition-delay: 0.36s; }
+.delay-4 { transition-delay: 0.48s; }
+.delay-5 { transition-delay: 0.60s; }
+.delay-6 { transition-delay: 0.72s; }
+
+/* Staggered Groups */
+.stagger-group > * {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stagger-group.in-view > *,
+.stagger-group > .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* -------- RESPONSIVE BREAKPOINTS -------- */
+@media (max-width: 1200px) {
+    .plant-card {
+        flex: 0 0 calc((100% - 60px) / 4); /* 4 per row */
+    }
+    .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 1180px) {
+    .nav-menu {
+        gap: 18px;
+    }
+    .nav-link {
+        font-size: 13.5px;
+    }
+    .brand-line-1 {
+        font-size: 17.5px;
+    }
+    .brand-line-2 {
+        font-size: 13px;
+    }
+    .navbar-brand-name {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .nav-menu {
+        display: none;
+    }
+    .hamburger {
+        display: flex;
+    }
+    .brand-line-1 {
+        font-size: 18px;
+    }
+    .brand-line-2 {
+        font-size: 13.5px;
+    }
+    .navbar-brand-name {
+        font-size: 22px;
+    }
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+    .about-img {
+        height: 400px;
+    }
+    .about-quality-badge {
+        left: 10px;
+        bottom: -18px;
+        padding: 14px 18px;
+        gap: 10px;
+    }
+    .about-collections {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    /* Collections showcase tablet layout */
+    .collections-showcase-grid {
+        gap: 18px;
+    }
+    .collection-hero-card.card-outdoor {
+        grid-column: span 6;
+        height: 380px;
+    }
+    .collection-hero-card.card-indoor {
+        grid-column: span 6;
+        height: 380px;
+    }
+    .collection-hero-card.card-flowering {
+        grid-column: span 6;
+        height: 310px;
+    }
+    .collection-hero-card.card-ficus {
+        grid-column: span 6;
+        height: 310px;
+    }
+    .collection-hero-card.card-fruit {
+        grid-column: span 12;
+        height: 310px;
+    }
+    .plants-grid-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    .plant-card {
+        flex: 0 0 calc((100% - 40px) / 3); /* 3 per row */
+    }
+    .service-grid {
+        gap: 32px;
+    }
+    .service-img-frame {
+        height: 330px;
+    }
+    .service-title {
+        font-size: 25px;
+    }
+    .landscaping-main-heading {
+        font-size: 36px;
+    }
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .gallery-item {
+        height: 280px;
+    }
+    .contact-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .contact-main-grid {
+        grid-template-columns: 1fr;
+    }
+    .contact-form-wrap, .contact-side-info {
+        padding: 30px 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-bar {
+        padding: 6px 0;
+    }
+    .top-bar-item.top-bar-email,
+    .top-bar-divider {
+        display: none;
+    }
+    .navbar-content {
+        min-height: 68px;
+    }
+    .navbar-brand {
+        gap: 11px;
+    }
+    .navbar-logo-wrap {
+        width: 48px;
+        height: 48px;
+    }
+    .brand-line-1 {
+        font-size: 16px;
+        letter-spacing: 0.2px;
+    }
+    .brand-line-2 {
+        font-size: 12.5px;
+        letter-spacing: 0.7px;
+    }
+    .navbar-brand-name {
+        font-size: 20px;
+        letter-spacing: 0.3px;
+    }
+    .hero-welcome-overlay {
+        padding-left: 20px;
+        padding-right: 18px;
+    }
+    .hero-welcome-eyebrow {
+        font-size: 15px;
+        margin-bottom: 4px;
+    }
+    .hero-welcome-title {
+        font-size: clamp(22px, 5.2vw, 32px);
+    }
+    .btn-nav-whatsapp span {
+        display: none;
+    }
+    .btn-nav-whatsapp {
+        padding: 9px 12px;
+        border-radius: 50%;
+    }
+    .btn-nav-whatsapp i {
+        margin: 0;
+        font-size: 16px;
+    }
+    .hero-section {
+        height: clamp(260px, 58vw, 440px);
+        min-height: auto;
+    }
+    .hero-nav-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 13px;
+        opacity: 0.6;
+    }
+    .hero-prev-arrow {
+        left: 12px;
+    }
+    .hero-next-arrow {
+        right: 12px;
+    }
+    .hero-dots-wrap {
+        bottom: 14px;
+        padding: 6px 12px;
+    }
+    .hero-dot {
+        width: 8px;
+        height: 8px;
+    }
+    .hero-dot.active {
+        width: 22px;
+    }
+    .plant-card {
+        flex: 0 0 calc((100% - 16px) / 2); /* 2 per row on mobile */
+        min-width: 150px;
+    }
+    .plant-card-img-wrap {
+        height: 190px;
+    }
+    .plant-card-info {
+        padding: 12px;
+    }
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+    .gallery-item {
+        height: 210px;
+        border-radius: 16px;
+    }
+    .gallery-intro {
+        margin-bottom: 30px;
+    }
+    .gallery-main-heading {
+        font-size: 29px;
+    }
+    .gallery-quote {
+        font-size: 14.5px;
+    }
+    .contact-cards-grid {
+        grid-template-columns: 1fr;
+    }
+    .form-group-row {
+        grid-template-columns: 1fr;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    .lightbox-nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    .lightbox-prev {
+        left: 10px;
+    }
+    .lightbox-next {
+        right: 10px;
+    }
+    /* About section mobile */
+    .about-section {
+        padding: 70px 0 90px;
+    }
+    .about-main-heading {
+        font-size: 26px;
+    }
+    .about-img {
+        height: 300px;
+    }
+    .about-img-frame {
+        border-radius: 16px 40px 16px 40px;
+    }
+    .about-quality-badge {
+        left: 8px;
+        bottom: -16px;
+        padding: 12px 16px;
+        gap: 10px;
+    }
+    .about-quality-icon {
+        font-size: 22px;
+    }
+    .about-quality-sub {
+        font-size: 13px;
+    }
+    .about-collections {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 7px;
+    }
+    .about-collection-item {
+        padding: 10px 6px 9px;
+    }
+    .about-collection-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+    }
+    .about-collection-name {
+        font-size: 10px;
+    }
+    .btn-about-cta {
+        padding: 13px 28px;
+        font-size: 12px;
+    }
+    /* Ficus section mobile */
+    .ficus-section {
+        padding: 65px 0 70px;
+    }
+    .ficus-card {
+        flex: 0 0 180px;
+        width: 180px;
+        padding: 9px;
+        border-radius: 18px;
+    }
+    .ficus-card-img-wrap {
+        height: 200px;
+        border-radius: 13px;
+    }
+    .ficus-heading {
+        font-size: 28px;
+    }
+    .ficus-subtitle {
+        font-size: 14px;
+        margin-bottom: 30px;
+        padding: 0 15px;
+    }
+    .ficus-track {
+        gap: 16px;
+    }
+    .ficus-quote {
+        margin-top: 24px;
+        padding: 0 15px;
+    }
+    .ficus-quote p {
+        font-size: 15px;
+    }
+    /* Collections showcase mobile layout */
+    .collections-intro {
+        margin-bottom: 36px;
+    }
+    .collections-heading {
+        font-size: 28px;
+    }
+    .collections-quote {
+        font-size: 15px;
+        padding: 0 10px;
+    }
+    .collections-showcase-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-bottom: 45px;
+    }
+    .collection-hero-card.card-outdoor,
+    .collection-hero-card.card-indoor,
+    .collection-hero-card.card-flowering,
+    .collection-hero-card.card-ficus,
+    .collection-hero-card.card-fruit {
+        grid-column: auto;
+    }
+    .collection-hero-card.card-outdoor,
+    .collection-hero-card.card-indoor {
+        height: 340px;
+        border-radius: 22px;
+    }
+    .collection-hero-card.card-complementary {
+        height: 290px;
+        border-radius: 20px;
+    }
+    .collection-card-content {
+        padding: 24px 20px;
+    }
+    .collection-card-title {
+        font-size: 23px;
+    }
+    .collection-card-sub {
+        font-size: 13.5px;
+        margin-bottom: 15px;
+    }
+    .collection-card-btn {
+        padding: 9px 20px;
+        font-size: 12.5px;
+    }
+    /* Plants grid tablet / mobile */
+    .plants-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    .plants-collection-heading {
+        font-size: 30px;
+    }
+    .plants-category-pills {
+        gap: 8px;
+        margin: 22px auto 32px;
+    }
+    .plant-pill-btn {
+        padding: 8px 18px;
+        font-size: 13px;
+    }
+    .collection-page-nav {
+        padding: 12px 18px;
+        margin-bottom: 30px;
+    }
+    .btn-back-home {
+        padding: 7px 16px;
+        font-size: 12.5px;
+    }
+    .collection-breadcrumb {
+        font-size: 12.5px;
+    }
+    /* Landscaping section mobile */
+    .landscaping-section {
+        padding: 75px 0 85px;
+    }
+    .landscaping-main-heading {
+        font-size: 29px;
+    }
+    .landscaping-subtitle {
+        font-size: 16px;
+    }
+    .landscaping-quote-wrap {
+        padding: 8px 16px;
+        border-radius: 20px;
+    }
+    .landscaping-quote {
+        font-size: 14.5px;
+    }
+    .landscaping-description {
+        font-size: 14px;
+    }
+    .landscaping-services-list {
+        gap: 26px;
+        margin-top: 32px;
+    }
+    .service-showcase-card {
+        padding: 24px 20px;
+        border-radius: 20px;
+    }
+    .service-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+    .service-grid.service-img-left .service-img-col,
+    .service-grid.service-img-right .service-img-col {
+        order: 1 !important;
+    }
+    .service-grid.service-img-left .service-info-col,
+    .service-grid.service-img-right .service-info-col {
+        order: 2 !important;
+    }
+    .service-img-frame {
+        height: 250px;
+    }
+    .service-img-frame.frame-curve-left,
+    .service-img-frame.frame-curve-right {
+        border-radius: 18px;
+    }
+    .service-title {
+        font-size: 23px;
+    }
+    .service-desc {
+        font-size: 14px;
+        margin-bottom: 18px;
+    }
+    .service-highlights-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        margin-bottom: 22px;
+    }
+    .service-highlight-pill {
+        padding: 8px 12px;
+    }
+    .service-enquire-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 11px 20px;
+    }
+    .landscape-cta-card {
+        padding: 34px 22px;
+        border-radius: 22px;
+    }
+    .landscape-cta-title {
+        font-size: 22px;
+    }
+    .landscape-cta-sub {
+        font-size: 14px;
+    }
+    .landscape-cta-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 13px 22px;
+    }
+    /* Why Choose Us mobile */
+    .why-section {
+        padding: 75px 0 85px;
+    }
+    .why-main-heading {
+        font-size: 28px;
+    }
+    .why-main-subtitle {
+        font-size: 14.5px;
+    }
+    .why-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .why-card {
+        padding: 30px 20px;
+    }
+    /* Floating action buttons mobile placement */
+    .floating-actions {
+        bottom: 20px;
+        right: 16px;
+        gap: 10px;
+    }
+    .float-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-brand {
+        gap: 9px;
+    }
+    .navbar-logo-wrap {
+        width: 42px;
+        height: 42px;
+    }
+    .brand-line-1 {
+        font-size: 14.5px;
+        letter-spacing: 0.15px;
+    }
+    .brand-line-2 {
+        font-size: 11.5px;
+        letter-spacing: 0.6px;
+    }
+    .plant-card {
+        flex: 0 0 100%; /* Single card on very narrow mobile if needed */
+        max-width: 100%;
+    }
+    .plant-card-img-wrap {
+        height: 230px;
+    }
+    /* About collections – 2 columns on very small screens */
+    .about-collections {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+    .about-collection-item {
+        padding: 12px 8px;
+    }
+    .collection-hero-card.card-outdoor,
+    .collection-hero-card.card-indoor {
+        height: 310px;
+    }
+    .collection-hero-card.card-complementary {
+        height: 270px;
+    }
+    .plants-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    .plant-grid-item {
+        border-radius: 14px;
+    }
+    .plants-collection-heading {
+        font-size: 26px;
+    }
+    .plant-pill-btn {
+        padding: 7px 14px;
+        font-size: 12px;
+    }
+    .service-showcase-card {
+        padding: 18px 15px;
+    }
+    .service-img-frame {
+        height: 200px;
+    }
+    .service-title {
+        font-size: 20px;
+    }
+    .landscaping-main-heading {
+        font-size: 26px;
+    }
+    .why-main-heading {
+        font-size: 24px;
+    }
+    .landscape-cta-card {
+        padding: 28px 16px;
+    }
+    .landscape-cta-title {
+        font-size: 20px;
+    }
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .gallery-item {
+        height: 175px;
+        border-radius: 14px;
+    }
+    .gallery-intro {
+        margin-bottom: 24px;
+    }
+    .gallery-main-heading {
+        font-size: 25px;
+    }
+    .gallery-quote {
+        font-size: 13.5px;
+    }
+}
+
+@media (max-width: 360px) {
+    .navbar-brand {
+        gap: 7px;
+    }
+    .navbar-logo-wrap {
+        width: 38px;
+        height: 38px;
+    }
+    .brand-line-1 {
+        font-size: 13px;
+        letter-spacing: 0.1px;
+    }
+    .brand-line-2 {
+        font-size: 10.5px;
+        letter-spacing: 0.5px;
+    }
+}
