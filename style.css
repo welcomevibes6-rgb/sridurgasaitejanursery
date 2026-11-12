@@ -2101,6 +2101,77 @@ ul {
     transform: scale(1);
 }
 
+/* ==========================================
+   NAMED PLANT CARDS (Flowering Plants etc.)
+   ========================================== */
+.plant-card-named {
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    background: #FAFAF5;
+    border: 1px solid rgba(45, 107, 59, 0.12);
+}
+
+.plant-card-named .plant-grid-img-wrap {
+    aspect-ratio: 1 / 1;
+    flex-shrink: 0;
+}
+
+.plant-card-info {
+    padding: 14px 16px 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(180deg, #f7f9f4 0%, #FAFAF5 100%);
+}
+
+.plant-card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a3c22;
+    margin: 0;
+    line-height: 1.35;
+    letter-spacing: 0.02em;
+}
+
+.plant-whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 18px;
+    background: #25D366;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 3px 12px rgba(37, 211, 102, 0.25);
+    white-space: nowrap;
+}
+
+.plant-whatsapp-btn:hover {
+    background: #1ebe57;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.plant-whatsapp-btn i {
+    font-size: 16px;
+}
+
+.plant-card-named:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(25, 45, 25, 0.18);
+    border-color: rgba(45, 107, 59, 0.35);
+}
+
 .plants-grid-count {
     text-align: center;
     font-size: 13.5px;
@@ -4265,6 +4336,17 @@ ul {
     }
     .plant-grid-item {
         border-radius: 14px;
+    }
+    .plant-card-name {
+        font-size: 14px;
+    }
+    .plant-whatsapp-btn {
+        font-size: 12px;
+        padding: 7px 14px;
+    }
+    .plant-card-info {
+        padding: 10px 12px 14px;
+        gap: 8px;
     }
     .plants-collection-heading {
         font-size: 26px;

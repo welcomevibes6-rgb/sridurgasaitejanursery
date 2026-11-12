@@ -48,8 +48,36 @@ const PLANTS_COLLECTION_DATA = {
         title: "Flowering Plants",
         emoji: "🌸",
         images: [
-            ...Array.from({ length: 14 }, (_, i) => `image copy ${140 + i}.png`),
-            "image copy 162.png"
+            { src: "image copy 169.png", name: "Gardenia" },
+            { src: "image copy 170.png", name: "Star Jasmine" },
+            { src: "image copy 171.png", name: "Bulb Sampangi Plant" },
+            { src: "image copy 172.png", name: "Pink December Flower Plant" },
+            { src: "image copy 173.png", name: "Ixora Red Plant" },
+            { src: "image copy 174.png", name: "Hibiscus Hybrid Red" },
+            { src: "image copy 175.png", name: "Dixie Pink" },
+            { src: "image copy 176.png", name: "Nerium Red Plant" },
+            { src: "image copy 177.png", name: "Hibiscus White Plant" },
+            { src: "image copy 178.png", name: "Tecoma Golden Yellow" },
+            { src: "image copy 179.png", name: "Nerium Oleander Pink" },
+            { src: "image copy 180.png", name: "Chrysanthemum Pink" },
+            { src: "image copy 181.png", name: "White Chrysanthemum" },
+            { src: "image copy 182.png", name: "Yellow Chrysanthemum" },
+            { src: "image copy 183.png", name: "Ruby Red Chrysanthemum" },
+            { src: "image copy 184.png", name: "Ixora Pink Plant" },
+            { src: "image copy 185.png", name: "Chrysanthemum Purple" },
+            { src: "image copy 186.png", name: "Parijat" },
+            { src: "image copy 187.png", name: "Cristata Lavender" },
+            { src: "image copy 188.png", name: "Singapuri Ixora Sandal" },
+            { src: "image copy 189.png", name: "Attractive Ixora Coccinea Flower Plant" },
+            { src: "image copy 190.png", name: "Best Spanish Jasmine" },
+            { src: "image copy 191.png", name: "Iruvatchi Malli" },
+            { src: "image copy 192.png", name: "Plumeria Alba" },
+            { src: "image copy 193.png", name: "Plumeria Obtusa" },
+            { src: "image copy 194.png", name: "Allamanda Purple" },
+            { src: "image copy 196.png", name: "Marigold Yellow" },
+            { src: "image copy 197.png", name: "Chrysanthemum Sevanthi" },
+            { src: "image copy 198.png", name: "Sevanthi Paper Yellow" },
+            { src: "image copy 199.png", name: "Chrysanthemum Kashmir Red" }
         ]
     },
     fruit: {
@@ -76,18 +104,28 @@ const PLANTS_COLLECTION_DATA = {
     }
 };
 
-// Deduplicate helper
+// Deduplicate helper (handles both string and object items)
 Object.keys(PLANTS_COLLECTION_DATA).forEach(key => {
-    PLANTS_COLLECTION_DATA[key].images = Array.from(new Set(PLANTS_COLLECTION_DATA[key].images));
+    const imgs = PLANTS_COLLECTION_DATA[key].images;
+    const seen = new Set();
+    PLANTS_COLLECTION_DATA[key].images = imgs.filter(item => {
+        const k = typeof item === 'string' ? item : item.src;
+        if (seen.has(k)) return false;
+        seen.add(k);
+        return true;
+    });
 });
+
+// Helper: extract src string from item (string or object)
+const getSrc = item => typeof item === 'string' ? item : item.src;
 
 // Construct ALL category by combining unique images
 const ALL_COLLECTION_IMAGES = Array.from(new Set([
-    ...PLANTS_COLLECTION_DATA.outdoor.images,
-    ...PLANTS_COLLECTION_DATA.indoor.images,
-    ...PLANTS_COLLECTION_DATA.flowering.images,
-    ...PLANTS_COLLECTION_DATA.fruit.images,
-    ...PLANTS_COLLECTION_DATA.ficus.images
+    ...PLANTS_COLLECTION_DATA.outdoor.images.map(getSrc),
+    ...PLANTS_COLLECTION_DATA.indoor.images.map(getSrc),
+    ...PLANTS_COLLECTION_DATA.flowering.images.map(getSrc),
+    ...PLANTS_COLLECTION_DATA.fruit.images.map(getSrc),
+    ...PLANTS_COLLECTION_DATA.ficus.images.map(getSrc)
 ]));
 
 // Exactly 10 Curated Gallery Photographs
@@ -388,8 +426,37 @@ function renderPlantsGrid(filter = 'all') {
 
     currentVisiblePlants = imagesList;
 
-    container.innerHTML = imagesList.map((src, index) => {
+    container.innerHTML = imagesList.map((item, index) => {
+        const isObj = typeof item === 'object';
+        const src = isObj ? item.src : item;
+        const plantName = isObj ? item.name : '';
         const encodedSrc = encodeURI(src);
+        const whatsappMsg = encodeURIComponent(`Hello Sri Durga Sai Teja Nursery! I am interested in your ${plantName}. Please share the price, availability and more details. Thank you!`);
+
+        if (isObj) {
+            return `
+                <div class="plant-grid-item plant-card-named" data-index="${index}" data-src="${encodedSrc}" data-category="${categoryTitle}" data-plant-name="${plantName}">
+                    <div class="plant-grid-img-wrap">
+                        <img src="${encodedSrc}" 
+                             alt="${plantName} - Sri Durga Sai Teja Nursery" 
+                             class="plant-grid-img" 
+                             loading="lazy"
+                             decoding="async">
+                        <div class="plant-grid-hover-overlay">
+                            <span class="plant-grid-zoom-icon"><i class="fas fa-search-plus"></i></span>
+                        </div>
+                    </div>
+                    <div class="plant-card-info">
+                        <h4 class="plant-card-name">${plantName}</h4>
+                        <a href="https://wa.me/${NURSERY_CONFIG.whatsappNumber}?text=${whatsappMsg}" 
+                           target="_blank" rel="noopener noreferrer" class="plant-whatsapp-btn"
+                           onclick="event.stopPropagation()">
+                            <i class="fab fa-whatsapp"></i> Enquire on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            `;
+        }
         return `
             <div class="plant-grid-item" data-index="${index}" data-src="${encodedSrc}" data-category="${categoryTitle}">
                 <div class="plant-grid-img-wrap">
@@ -636,11 +703,15 @@ function initLightboxListeners() {
         if (item) {
             const cardIndex = parseInt(item.getAttribute('data-index'), 10);
             const categoryName = item.getAttribute('data-category') || "Our Plants Collection";
-            const list = currentVisiblePlants.map((src, i) => ({
-                src: encodeURI(src),
-                title: `${categoryName} Specimen #${i + 1}`,
-                category: categoryName
-            }));
+            const list = currentVisiblePlants.map((plantItem, i) => {
+                const isObj = typeof plantItem === 'object';
+                return {
+                    src: encodeURI(isObj ? plantItem.src : plantItem),
+                    title: isObj ? plantItem.name : `${categoryName} Specimen #${i + 1}`,
+                    category: categoryName,
+                    hasCustomName: isObj
+                };
+            });
             openLightbox(cardIndex, list);
         }
     });
@@ -691,7 +762,9 @@ function openLightbox(index, items) {
     counter.textContent = `${index + 1} / ${items.length}`;
 
     // WhatsApp enquiry for this specific plant
-    const msg = encodeURIComponent(`Hello Sri Durga Saiteja Nursery! I am interested in ${item.title} (${item.category}) that I saw on your website. Please share price, size, and availability. Thank you!`);
+    const msg = item.hasCustomName
+        ? encodeURIComponent(`Hello Sri Durga Sai Teja Nursery! I am interested in your ${item.title}. Please share the price, availability and more details. Thank you!`)
+        : encodeURIComponent(`Hello Sri Durga Saiteja Nursery! I am interested in ${item.title} (${item.category}) that I saw on your website. Please share price, size, and availability. Thank you!`);
     whatsappBtn.href = `https://wa.me/${NURSERY_CONFIG.whatsappNumber}?text=${msg}`;
 
     modal.classList.add('active');
@@ -723,7 +796,9 @@ function navigateLightbox(direction) {
         category.textContent = item.category;
         counter.textContent = `${currentLightboxIndex + 1} / ${activeLightboxItems.length}`;
         
-        const msg = encodeURIComponent(`Hello Sri Durga Saiteja Nursery! I am interested in ${item.title} (${item.category}) that I saw on your website. Please share price, size, and availability. Thank you!`);
+        const msg = item.hasCustomName
+            ? encodeURIComponent(`Hello Sri Durga Sai Teja Nursery! I am interested in your ${item.title}. Please share the price, availability and more details. Thank you!`)
+            : encodeURIComponent(`Hello Sri Durga Saiteja Nursery! I am interested in ${item.title} (${item.category}) that I saw on your website. Please share price, size, and availability. Thank you!`);
         whatsappBtn.href = `https://wa.me/${NURSERY_CONFIG.whatsappNumber}?text=${msg}`;
 
         img.onload = () => { img.style.opacity = '1'; };
