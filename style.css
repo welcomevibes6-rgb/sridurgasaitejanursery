@@ -2104,72 +2104,100 @@ ul {
 /* ==========================================
    NAMED PLANT CARDS (Flowering Plants etc.)
    ========================================== */
-.plant-card-named {
-    aspect-ratio: auto;
-    display: flex;
-    flex-direction: column;
-    background: #FAFAF5;
-    border: 1px solid rgba(45, 107, 59, 0.12);
+.plant-grid-item.plant-card-named {
+    aspect-ratio: unset !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+    background: #FFFFFF !important;
+    border: 1px solid rgba(27, 67, 36, 0.12) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 4px 16px rgba(25, 45, 25, 0.06) !important;
+    transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s ease, border-color 0.3s ease !important;
 }
 
-.plant-card-named .plant-grid-img-wrap {
-    aspect-ratio: 1 / 1;
-    flex-shrink: 0;
+.plant-grid-item.plant-card-named:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 16px 36px rgba(25, 45, 25, 0.14) !important;
+    border-color: rgba(37, 90, 50, 0.35) !important;
 }
 
-.plant-card-info {
-    padding: 14px 16px 16px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    background: linear-gradient(180deg, #f7f9f4 0%, #FAFAF5 100%);
+.plant-grid-item.plant-card-named .plant-grid-img-wrap {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;
+    flex-shrink: 0 !important;
+    overflow: hidden !important;
+    background: #F4F6F0 !important;
 }
 
-.plant-card-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    font-weight: 600;
-    color: #1a3c22;
-    margin: 0;
-    line-height: 1.35;
-    letter-spacing: 0.02em;
+.plant-grid-item.plant-card-named .plant-grid-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    transition: transform 0.55s cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
 
-.plant-whatsapp-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    padding: 8px 18px;
-    background: #25D366;
-    color: #ffffff;
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 3px 12px rgba(37, 211, 102, 0.25);
-    white-space: nowrap;
+.plant-grid-item.plant-card-named:hover .plant-grid-img {
+    transform: scale(1.06) !important;
 }
 
-.plant-whatsapp-btn:hover {
-    background: #1ebe57;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-    color: #ffffff;
-    text-decoration: none;
+.plant-grid-item.plant-card-named .plant-card-info {
+    padding: 13px 14px 15px !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    background: #FFFFFF !important;
+    flex-grow: 1 !important;
+    border-top: 1px solid rgba(27, 67, 36, 0.06) !important;
 }
 
-.plant-whatsapp-btn i {
-    font-size: 16px;
+.plant-grid-item.plant-card-named .plant-card-name {
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #173b20 !important;
+    margin: 0 !important;
+    line-height: 1.35 !important;
+    letter-spacing: 0.01em !important;
+    display: block !important;
 }
 
-.plant-card-named:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 18px 40px rgba(25, 45, 25, 0.18);
-    border-color: rgba(45, 107, 59, 0.35);
+.plant-grid-item.plant-card-named .plant-whatsapp-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    padding: 7px 16px !important;
+    background: #25D366 !important;
+    color: #FFFFFF !important;
+    font-family: 'Inter', -apple-system, sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    border-radius: 50px !important;
+    text-decoration: none !important;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease !important;
+    box-shadow: 0 2px 8px rgba(37, 211, 102, 0.25) !important;
+    white-space: nowrap !important;
+    cursor: pointer !important;
+}
+
+.plant-grid-item.plant-card-named .plant-whatsapp-btn:hover {
+    background: #1eb956 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4) !important;
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+}
+
+.plant-grid-item.plant-card-named .plant-whatsapp-btn i {
+    font-size: 14px !important;
 }
 
 .plants-grid-count {
@@ -4337,16 +4365,21 @@ ul {
     .plant-grid-item {
         border-radius: 14px;
     }
-    .plant-card-name {
-        font-size: 14px;
+    .plant-grid-item.plant-card-named {
+        border-radius: 14px !important;
     }
-    .plant-whatsapp-btn {
-        font-size: 12px;
-        padding: 7px 14px;
+    .plant-grid-item.plant-card-named .plant-card-name {
+        font-size: 13.5px !important;
+        line-height: 1.3 !important;
     }
-    .plant-card-info {
-        padding: 10px 12px 14px;
-        gap: 8px;
+    .plant-grid-item.plant-card-named .plant-whatsapp-btn {
+        font-size: 11px !important;
+        padding: 5px 11px !important;
+        gap: 4px !important;
+    }
+    .plant-grid-item.plant-card-named .plant-card-info {
+        padding: 10px 8px 12px !important;
+        gap: 6px !important;
     }
     .plants-collection-heading {
         font-size: 26px;

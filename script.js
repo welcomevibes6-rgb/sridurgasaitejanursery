@@ -119,6 +119,40 @@ Object.keys(PLANTS_COLLECTION_DATA).forEach(key => {
 // Helper: extract src string from item (string or object)
 const getSrc = item => typeof item === 'string' ? item : item.src;
 
+// Quick-lookup map of Flowering Plant names (ensures names display in both Flowering and All views)
+const FLOWERING_PLANTS_MAP = {
+    "image copy 169.png": "Gardenia",
+    "image copy 170.png": "Star Jasmine",
+    "image copy 171.png": "Bulb Sampangi Plant",
+    "image copy 172.png": "Pink December Flower Plant",
+    "image copy 173.png": "Ixora Red Plant",
+    "image copy 174.png": "Hibiscus Hybrid Red",
+    "image copy 175.png": "Dixie Pink",
+    "image copy 176.png": "Nerium Red Plant",
+    "image copy 177.png": "Hibiscus White Plant",
+    "image copy 178.png": "Tecoma Golden Yellow",
+    "image copy 179.png": "Nerium Oleander Pink",
+    "image copy 180.png": "Chrysanthemum Pink",
+    "image copy 181.png": "White Chrysanthemum",
+    "image copy 182.png": "Yellow Chrysanthemum",
+    "image copy 183.png": "Ruby Red Chrysanthemum",
+    "image copy 184.png": "Ixora Pink Plant",
+    "image copy 185.png": "Chrysanthemum Purple",
+    "image copy 186.png": "Parijat",
+    "image copy 187.png": "Cristata Lavender",
+    "image copy 188.png": "Singapuri Ixora Sandal",
+    "image copy 189.png": "Attractive Ixora Coccinea Flower Plant",
+    "image copy 190.png": "Best Spanish Jasmine",
+    "image copy 191.png": "Iruvatchi Malli",
+    "image copy 192.png": "Plumeria Alba",
+    "image copy 193.png": "Plumeria Obtusa",
+    "image copy 194.png": "Allamanda Purple",
+    "image copy 196.png": "Marigold Yellow",
+    "image copy 197.png": "Chrysanthemum Sevanthi",
+    "image copy 198.png": "Sevanthi Paper Yellow",
+    "image copy 199.png": "Chrysanthemum Kashmir Red"
+};
+
 // Construct ALL category by combining unique images
 const ALL_COLLECTION_IMAGES = Array.from(new Set([
     ...PLANTS_COLLECTION_DATA.outdoor.images.map(getSrc),
@@ -429,29 +463,32 @@ function renderPlantsGrid(filter = 'all') {
     container.innerHTML = imagesList.map((item, index) => {
         const isObj = typeof item === 'object';
         const src = isObj ? item.src : item;
-        const plantName = isObj ? item.name : '';
+        const plantName = isObj ? item.name : (FLOWERING_PLANTS_MAP[src] || '');
+        const hasName = Boolean(plantName);
         const encodedSrc = encodeURI(src);
         const whatsappMsg = encodeURIComponent(`Hello Sri Durga Sai Teja Nursery! I am interested in your ${plantName}. Please share the price, availability and more details. Thank you!`);
 
-        if (isObj) {
+        if (hasName) {
             return `
-                <div class="plant-grid-item plant-card-named" data-index="${index}" data-src="${encodedSrc}" data-category="${categoryTitle}" data-plant-name="${plantName}">
-                    <div class="plant-grid-img-wrap">
+                <div class="plant-grid-item plant-card-named" data-index="${index}" data-src="${encodedSrc}" data-category="${categoryTitle}" data-plant-name="${plantName}" style="aspect-ratio: auto; height: auto; display: flex; flex-direction: column; overflow: hidden; background: #ffffff; border-radius: 18px; border: 1px solid rgba(27, 67, 36, 0.12);">
+                    <div class="plant-grid-img-wrap" style="aspect-ratio: 1 / 1; height: auto; width: 100%; flex-shrink: 0; position: relative; overflow: hidden; background: #F4F6F0;">
                         <img src="${encodedSrc}" 
                              alt="${plantName} - Sri Durga Sai Teja Nursery" 
                              class="plant-grid-img" 
                              loading="lazy"
-                             decoding="async">
+                             decoding="async"
+                             style="width: 100%; height: 100%; object-fit: cover; display: block;">
                         <div class="plant-grid-hover-overlay">
                             <span class="plant-grid-zoom-icon"><i class="fas fa-search-plus"></i></span>
                         </div>
                     </div>
-                    <div class="plant-card-info">
-                        <h4 class="plant-card-name">${plantName}</h4>
+                    <div class="plant-card-info" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 12px 14px 14px; text-align: center; gap: 8px; background: #ffffff; flex-grow: 1;">
+                        <h4 class="plant-card-name" style="font-family: 'Playfair Display', Georgia, serif; font-size: 15.5px; font-weight: 600; color: #173b20; margin: 0; line-height: 1.35; letter-spacing: 0.01em;">${plantName}</h4>
                         <a href="https://wa.me/${NURSERY_CONFIG.whatsappNumber}?text=${whatsappMsg}" 
                            target="_blank" rel="noopener noreferrer" class="plant-whatsapp-btn"
-                           onclick="event.stopPropagation()">
-                            <i class="fab fa-whatsapp"></i> Enquire on WhatsApp
+                           onclick="event.stopPropagation()"
+                           style="display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 7px 16px; background: #25D366; color: #ffffff; font-family: 'Inter', -apple-system, sans-serif; font-size: 12px; font-weight: 600; border-radius: 50px; text-decoration: none; white-space: nowrap;">
+                            <i class="fab fa-whatsapp" style="font-size: 14px;"></i> Enquire on WhatsApp
                         </a>
                     </div>
                 </div>
@@ -705,11 +742,13 @@ function initLightboxListeners() {
             const categoryName = item.getAttribute('data-category') || "Our Plants Collection";
             const list = currentVisiblePlants.map((plantItem, i) => {
                 const isObj = typeof plantItem === 'object';
+                const src = isObj ? plantItem.src : plantItem;
+                const plantName = isObj ? plantItem.name : (FLOWERING_PLANTS_MAP[src] || '');
                 return {
-                    src: encodeURI(isObj ? plantItem.src : plantItem),
-                    title: isObj ? plantItem.name : `${categoryName} Specimen #${i + 1}`,
+                    src: encodeURI(src),
+                    title: plantName ? plantName : `${categoryName} Specimen #${i + 1}`,
                     category: categoryName,
-                    hasCustomName: isObj
+                    hasCustomName: Boolean(plantName)
                 };
             });
             openLightbox(cardIndex, list);
