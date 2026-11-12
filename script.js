@@ -17,7 +17,7 @@ const NURSERY_CONFIG = {
     whatsappNumber: "918106903979",
     email: "sridurgasaitejanursery@gmail.com",
     address: "Sri Durga Sai Teja Nursery, Kadiapulanka, Kadiyam, Rajahmundry, Andhra Pradesh 533126",
-    instagramUrl: "https://www.instagram.com/",
+    instagramUrl: "https://www.instagram.com/sridurgasaitejanursery?obrf=MTgycTlsbms5cGl0Ng==",
     whatsappPrefill: "Hello Sri Durga Saiteja Nursery! I visited your website and would like to know more about your plant varieties. Please share more details. Thank you!"
 };
 
